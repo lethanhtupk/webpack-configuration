@@ -1,3 +1,4 @@
 export function sayHello() {
-  alert('Hello I am Webpack, Im watching you')
+  let tool = 'webpack'
+  alert(`Hello I am ${tool}, Im watching you`)
 }

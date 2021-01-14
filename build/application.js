@@ -16,7 +16,7 @@
   \*************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"sayHello\": () => /* binding */ sayHello\n/* harmony export */ });\nfunction sayHello() {\n  var tool = 'webpack';\n  alert(\"Hello I am \".concat(tool, \", Im watching you\"));\n}\n\n//# sourceURL=webpack://webpack_beginers/./src/greeting.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"sayHello\": () => /* binding */ sayHello\n/* harmony export */ });\nfunction sayHello() {\n  var tool = 'webpack';\n  alert(\"Hello I am \".concat(tool, \", Im watching you\"));\n  console.log('can you find me?');\n}\n\n//# sourceURL=webpack://webpack_beginers/./src/greeting.js?");
 
 /***/ }),
 

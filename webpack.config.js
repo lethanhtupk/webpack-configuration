@@ -1,4 +1,7 @@
 const path = require('path')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const TerserJSPlugin = require('terser-webpack-plugin')
 
 module.exports = {
   mode: 'development',
@@ -9,6 +12,14 @@ module.exports = {
     filename: 'application.js',
     path: path.resolve(__dirname, 'build')
   },
+  optimization: {
+    minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})]
+  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'application.css'
+    })
+  ],
   module: {
     rules: [
       {
@@ -24,7 +35,7 @@ module.exports = {
       {
         test: /\.css$/i,
         use: [
-          'style-loader',
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
@@ -48,7 +59,7 @@ module.exports = {
       {
         test: /\.scss$/i,
         use: [
-          'style-loader',
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: { importLoaders: 1 }

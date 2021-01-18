@@ -4,7 +4,7 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const TerserJSPlugin = require('terser-webpack-plugin')
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   watch: true,
   devtool: 'eval-cheap-module-source-map', // source map feature
   entry: './src/index.js',
@@ -77,6 +77,20 @@ module.exports = {
             }
           },
           'sass-loader'
+        ]
+      },
+      {
+        test: /\.(png|jpg|gif|svg)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8129, // if any images with size less or equal 8192 bytes
+              // encode them as base64 and inject the result to css file.
+              name: '[name].[hash:7].[ext]',
+              publicPath: './'
+            }
+          }
         ]
       }
     ]

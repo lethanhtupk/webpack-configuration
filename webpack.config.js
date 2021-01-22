@@ -12,7 +12,7 @@ module.exports = {
     admin: './src/admin.js'
   },
   output: {
-    filename: '[name].js',
+    filename: '[name]-[contenthash].js',
     path: path.resolve(__dirname, 'build')
   },
   optimization: {
@@ -20,7 +20,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '[name].css'
+      filename: '[name]-[contenthash].css'
     })
   ],
   module: {
